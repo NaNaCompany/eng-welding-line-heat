@@ -1,0 +1,64 @@
+{
+  "id": "E159",
+  "value": 800000.0,
+  "method": "Independent Python Decimal at 1000 decimal digits; eta U I/v, J/m; 1 kJ/mm=1e6 J/m.",
+  "cases": [
+    {
+      "name": "SI input gives point eight kJ per mm",
+      "values": {},
+      "expected": 800000.0
+    },
+    {
+      "name": "unit efficiency arc energy",
+      "values": {
+        "efficiency": 1
+      },
+      "expected": 1000000.0
+    },
+    {
+      "name": "double speed",
+      "values": {
+        "speed": 0.01
+      },
+      "expected": 400000.0
+    },
+    {
+      "name": "nontrivial process settings",
+      "values": {
+        "voltage": 27.5,
+        "current": 180,
+        "speed": 0.007,
+        "efficiency": 0.72
+      },
+      "expected": 509142.85714285716
+    },
+    {
+      "name": "zero current",
+      "values": {
+        "current": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "zero efficiency",
+      "values": {
+        "efficiency": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "zero speed",
+      "values": {
+        "speed": 0
+      },
+      "throws": true
+    },
+    {
+      "name": "excess efficiency",
+      "values": {
+        "efficiency": 1.1
+      },
+      "throws": true
+    }
+  ]
+}

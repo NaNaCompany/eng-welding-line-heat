@@ -1,0 +1,74 @@
+{
+  "id": "E159",
+  "slug": "eng-welding-line-heat",
+  "title": "용접 단위길이 입열량 계산기",
+  "title_en": "Welding heat input per length calculator",
+  "category": "제조·가공",
+  "category_en": "Manufacturing and fabrication",
+  "fields": [
+    {
+      "key": "voltage",
+      "label": "일정한 아크 전압 U",
+      "label_en": "Constant arc voltage U",
+      "dimension": "voltage",
+      "example": 25,
+      "constraint": "nonnegative",
+      "display_unit": "V",
+      "display_value": "25"
+    },
+    {
+      "key": "current",
+      "label": "일정한 용접 전류 I",
+      "label_en": "Constant welding current I",
+      "dimension": "current",
+      "example": 200,
+      "constraint": "nonnegative",
+      "display_unit": "A",
+      "display_value": "200"
+    },
+    {
+      "key": "speed",
+      "label": "일정한 용접 이동속도 v",
+      "label_en": "Constant welding travel speed v",
+      "dimension": "speed",
+      "example": 0.005,
+      "constraint": "positive",
+      "display_unit": "ms",
+      "display_value": "0.0050000000000000001"
+    },
+    {
+      "key": "efficiency",
+      "label": "모재로 전달되는 열효율 η",
+      "label_en": "Thermal efficiency transferred to the workpiece η",
+      "dimension": "fraction",
+      "example": 0.8,
+      "constraint": "unitInterval",
+      "display_unit": "1",
+      "display_value": "0.80000000000000004"
+    }
+  ],
+  "result_label": "단위길이 입열량 H",
+  "result_label_en": "Heat input per weld length H",
+  "result_dimension": "lineHeat",
+  "output_unit": "kJmm",
+  "formula": "H = ηUI/v; 1 kJ/mm = 10⁶ J/m",
+  "purpose": "일정한 전압·전류·이동속도에서 전기 아크 에너지 중 모재에 전달되는 길이당 열량을 구합니다.",
+  "purpose_en": "Calculate the thermal energy delivered to the workpiece per weld length for constant voltage, current and travel speed.",
+  "assumptions": "일정한 전압·전류·이동속도와 공정에 맞게 정한 열효율을 가정합니다. η=1이면 보정 전 아크 에너지/길이입니다. 펄스·교류처럼 전압과 전류가 변하면 평균 전압×평균 전류가 평균 순간전력과 다를 수 있어 이 식을 그대로 적용하지 마세요. 열영향부 온도·냉각속도·용접 적합성은 계산하지 않습니다.",
+  "assumptions_en": "Required: constant voltage, current and travel speed, with a process-appropriate thermal efficiency. At η=1 the result is arc energy per length before efficiency correction. For pulsed or alternating waveforms, mean voltage times mean current can differ from mean instantaneous power; this constant-parameter model is then unsuitable. Excluded: heat-affected-zone temperature, cooling rate and weld qualification.",
+  "sources": [
+    {
+      "label": "TWI, heat input and arc energy",
+      "url": "https://www.twi-global.com/technical-knowledge/faqs/faq-what-is-the-difference-between-heat-input-and-arc-energy"
+    },
+    {
+      "label": "TWI, measurement of arc welding parameters",
+      "url": "https://www.twi-global.com/technical-knowledge/job-knowledge/measurement-of-arc-welding-parameters-139"
+    }
+  ],
+  "condition": "일정 전압·전류·이동속도와 해당 공정의 열효율 가정을 확인했습니다.",
+  "condition_en": "I confirm constant voltage, current and travel speed, with a thermal efficiency appropriate for the process.",
+  "site": "https://nanalab.kr/eng-welding-line-heat/",
+  "repository": "https://github.com/NaNaCompany/eng-welding-line-heat",
+  "groups": []
+}
